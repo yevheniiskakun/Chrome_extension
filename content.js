@@ -73,7 +73,21 @@ window.addEventListener("load", () => {
           //console.log("Random number", random_int)
           create_url(random_int);
 
-        
+        // Check if image exist
+        fetch(bare_url, { method: 'HEAD' })
+        .then(res => {
+            if (res.ok) {
+              document.body.style.backgroundImage = image_url; // if exist show it
+            } else {
+                console.log('Image does not exist.');
+            }
+        }).catch((err) => {                                    // if not   
+          random_int = getRandomInt(0, 1);                     // search for another
+          create_url(random_int);
+          document.body.style.backgroundImage = image_url;
+        });
+        // -------------------------------------
+          
           document.body.style.backgroundRepeat = "no-repeat";
           document.body.style.backgroundSize = "100% 100%";
         });
