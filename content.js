@@ -2,6 +2,7 @@
 
 let image_url;
 let bare_url;
+let description_text;
 
 let lon;
 let lat;
@@ -10,6 +11,9 @@ let summary = document.querySelector(".summary");
 let loc = document.querySelector(".location");
 let icon = document.querySelector(".icon");
 const kelvin = 273;
+
+quote_list = ["What you spend years building may be destroyed overnight. Build anyway", "This isn't about the past! It's about the future!", "If at first you don't succeed... succeed later than originally planned.", "Never dig straight down", "Keep calm and play Minecraft"];
+
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -42,32 +46,49 @@ window.addEventListener("load", () => {
           //console.log(data);
           temperature.textContent = 
               Math.floor(data.main.temp - kelvin) + '';
-          summary.textContent = data.weather[0].description;
+          
           //loc.textContent = data.name + ", " + data.sys.country;
 
           let weather_description = data.weather[0].description;
-      
+
+
           function create_url(random_int){
             if(weather_description.includes("clouds") == true){
               bare_url = 'Clouds/' + random_int + '.png';
               image_url = "url('Clouds/" + random_int + ".png')"
+              description_text = 'clouds';
             }else if(weather_description.includes("snow") == true){
               bare_url = 'Snow/' + random_int + '.png';
-              image_url = "url('Snow/" + random_int + ".png')"
+              image_url = "url('Snow/" + random_int + ".png')";
+              description_text = 'snow';
             }else if(weather_description.includes("rain") == true){
               bare_url = 'Rain/' + random_int + '.png';
-              image_url = "url('Rain/" + random_int + ".png')"
+              image_url = "url('Rain/" + random_int + ".png')";
+              description_text = 'rain';
             }else if(weather_description.includes("mist") == true){
               bare_url = 'Mist/' + random_int + '.png';
-              image_url = "url('Mist/" + random_int + ".png')"
+              image_url = "url('Mist/" + random_int + ".png')";
+              weather_description = 'mist';
             }else if(weather_description.includes("clear") == true){
               bare_url = 'Clear/' + random_int + '.png';
               image_url = "url('Clear/" + random_int + ".png')"
+              description_text = 'clear sky';
             }else if(weather_description.includes("thunderstorm") == true){
               bare_url = 'Thunderstorm/' + random_int + '.png';
-              image_url = "url('Thunderstorm/" + random_int + ".png')"
+              image_url = "url('Thunderstorm/" + random_int + ".png')";
+              description_text = "thunderstorm";
             }
+            document.getElementById("summary").innerHTML = description_text;
+            let quote_random_int = getRandomInt(0, 10);
+            if(quote_list[quote_random_int] == undefined){
+              document.getElementById("quote").innerHTML = quote_list[1];
+            }else{
+              document.getElementById("quote").innerHTML = quote_list[quote_random_int];
+            }
+           
           }
+
+         
 
           let random_int = getRandomInt(0, 10);
           //console.log("Random number", random_int)

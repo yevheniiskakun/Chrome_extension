@@ -11,29 +11,41 @@
     margin: 0;
     padding: 0;
   }
+  #quote{
+    font-family: 'Minecraft', sans-serif;
+    font-size: 27px;
+    text-align: center;
+    vertical-align: middle;
+    padding-bottom: 5px;
+    background-color: #3E4041DB;
+    color: white;
+    min-width: 5%;
+    max-width: 35%;
 
+    margin: 5% 0 0 55%;
+  }
   #temp_description{
     font-family: 'Minecraft', sans-serif;
     font-size: 27px;
     text-align: center;
     vertical-align: middle;
-    padding-bottom:5px;
+    padding-bottom: 5px;
     background-color: #3E4041DB;
     color: white;
     min-width: 5px;
     max-width: 17%;
 
-    margin: 10% 0 0 60%;
+    margin: 1% 0 0 55%;
   }
 </style>
 </head>
 <body>
-  <div id="description">
+  <div id="quote">
 
   </div>
   <div id="temp_description">
     <div style="margin: 0px 0px 0px 0px;">
-      <text class="temp"></text><text>&deg;</text> and <text class="summary"></text>
+      <text class="temp"></text><text>&deg;</text> and <text class="summary" id="summary"></text>
     </div>
   </div>
 </body>
