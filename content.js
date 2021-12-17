@@ -43,10 +43,10 @@ window.addEventListener("load", () => {
           temperature.textContent = 
               Math.floor(data.main.temp - kelvin) + '';
           summary.textContent = data.weather[0].description;
-          loc.textContent = data.name + ", " + data.sys.country;
+          //loc.textContent = data.name + ", " + data.sys.country;
 
           let weather_description = data.weather[0].description;
-
+      
           function create_url(random_int){
             if(weather_description.includes("clouds") == true){
               bare_url = 'Clouds/' + random_int + '.png';
