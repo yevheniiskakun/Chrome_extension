@@ -87,8 +87,8 @@ if((window.location.href).includes("chrome-extension://nbiofeaikjldpfihlcjlkfiel
 
               quote_list_len = quote_list.length
               let quote_random_int = getRandomInt(0, quote_list_len - 1);
-              console.log("Quote list length: ", quote_list_len);
-              console.log("Quote random int: ", quote_random_int);
+              //console.log("Quote list length: ", quote_list_len);
+              //console.log("Quote random int: ", quote_random_int);
               if(quote_list[quote_random_int] == undefined){
                 document.getElementById("quote").innerHTML = quote_list[1];
               }else{
@@ -96,8 +96,6 @@ if((window.location.href).includes("chrome-extension://nbiofeaikjldpfihlcjlkfiel
               }
             
             }
-
-          
 
             let random_int = getRandomInt(0, 10);
             //console.log("Random number", random_int)
